@@ -1,0 +1,150 @@
+
+@font-face {
+	font-family: "CanalDemiRomain";
+	src: url(font/canaldemiromain-webfont.ttf);
+}
+body { 
+  background: white;
+  font-family: "CanalDemiRomain";
+}
+
+#menu-button {
+  
+  background: black;
+  padding: 14px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height:100%;
+}
+.menu-open #menu-button {
+
+}
+.hamburger {
+  position: relative;
+  width: 35px;
+  height: 20px;
+}
+.hamburger::before, .hamburger::after, .hamburger .inner {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: white;
+  transform-origin: 100% 50%;
+  transition: all 350ms ease-in-out;
+}
+.hamburger::before {
+  top: -1px;
+}
+.hamburger .inner {
+  top: 9px;
+  transform-origin: 50% 50%;
+}
+.hamburger::after {
+  top: 19px;
+}
+
+.menu-open .hamburger {
+  transform: rotateY(-180deg);
+}
+.menu-open #menu-button:active .hamburger {
+  transform: scale(.95) rotateY(-180deg);
+}
+
+
+.menu-open .hamburger::before {
+  transform: translate3d(-4px, 1px, 0) rotateZ(-45deg);  
+}
+.menu-open .hamburger .inner {
+  transform: rotateY(-90deg); 
+  transition: transform 375ms, background-color 750ms ease-in-out;
+}
+.menu-open .hamburger::after {
+  transform: translate3d(-4px, -1px, 0) rotateZ(45deg);  
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+	height:100%;
+  width: 260px;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+nav::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width:250px;
+  height:100%;
+  right: 0;
+  background: black;
+  transform: rotateY(90deg);
+  transition: transform 350ms;
+  transform-origin: 0% 0%;
+  transition-delay: 200ms;
+}
+.menu-open nav::before {
+  transform: none;
+  transition-delay: 0;
+}
+
+nav ul {
+  position: absolute;
+  top: 90px;
+  left: 25px;
+    height:100%;
+  pointer-events: all;
+}
+
+nav li {
+  display: block;
+  font-family: "CanalDemiRomain";
+  font-weight: 200;
+  font-size: 26px;
+  line-height: 36px;
+  opacity: 1;
+  padding: 0;
+  width: 220px;
+  transition: opacity 550ms;
+}
+
+nav li a {
+font-family: "CanalDemiRomain";
+  color: white;
+  display: inline-block;
+  position: relative;
+  width:60px;
+  left:0px;
+}
+
+nav li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 220px;
+  bottom: 0;
+  height: 2px;
+  opacity: .5;
+  transform: translateX(-220px);
+  transition: all 200ms 50ms;
+}
+nav li a:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 400ms 100ms;
+}
+
+
+.menu-open nav li {
+  opacity: 1;
+  transform: none;
+}
+
